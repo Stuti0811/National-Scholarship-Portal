@@ -1,1 +1,1 @@
-National Scholarship Portal
+National Scholarship
