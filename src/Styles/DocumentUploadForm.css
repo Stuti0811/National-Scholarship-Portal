@@ -1,43 +1,98 @@
-/* src/Styles/DocumentUploadForm.css */
 .document-upload-form {
-    max-width: 600px;
-    margin-left: 3rem;
-    margin-top: 1rem;
-    padding: 20px;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 30px;
     background: #f7f7f7;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.document-upload-form:hover {
+    transform: scale(1.02);
 }
 
-.form-group label {
+.document-upload-form h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.document-upload-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.document-upload-form .form-group label {
     display: block;
-    margin-bottom: 5px;
+    color: #555;
     font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
 }
 
-.form-group input[type="file"] {
+.document-upload-form .form-group input[type="file"],
+.document-upload-form .form-group input[type="text"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    height: 40px; /* Adjusted height */
 }
 
-button {
-    width: 100%;
-    padding: 10px;
+.document-upload-form .form-group input[type="text"] {
+    margin-top: 5px;
+}
+
+.document-upload-form .form-group input[type="file"] {
+    margin-top: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.document-upload-form .form-group input[type="file"]::-webkit-file-upload-button {
     background: #007bff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.document-upload-form .form-group input[type="file"]::-webkit-file-upload-button:hover {
+    background: #0056b3;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn button:hover {
+    background-color: #0056b3;
+}
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn button {
+    padding: 12px;
+    background-color: #007bff;
     border: none;
     border-radius: 4px;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1; /* Ensures each button takes equal space */
+    margin: 0 5px; /* Adds 5px margin horizontally between buttons */
 }
 
-button:hover {
-    background: #0056b3;
+.btn button:first-child {
+    margin-right: 10px; /* Additional margin on the right of the first button */
 }

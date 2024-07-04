@@ -1,7 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from React Router DOM
 import '../Styles/Login.css';
 
 function Login() {
+    const navigate = useNavigate(); // Initialize useNavigate hook
+
+    const handleLogin = (event) => {
+        event.preventDefault(); // Prevent default form submission behavior (page reload)
+        // Perform your authentication logic here
+        // For demonstration, let's assume the login is successful
+        // You can add your actual authentication logic using APIs or state management
+        navigate("/home"); // Replace "/home" with your actual home page route
+    };
+
     return (
         <div className="main">
             <input type="checkbox" id="chk" aria-hidden="true" />
@@ -19,7 +30,7 @@ function Login() {
             </div>
 
             <div className="login">
-                <form action="/" method="post">
+                <form onSubmit={handleLogin}> {/* Attach handleLogin to form onSubmit */}
                     <label htmlFor="chk" aria-hidden="true">Login</label>
                     <input type="email" name="email" placeholder="Email" required />
                     <input type="password" name="pass" placeholder="Password" required />

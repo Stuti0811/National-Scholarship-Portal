@@ -1,36 +1,35 @@
-// src/components/DocumentUploadForm.js
+// function DocumentUploadForm({ onSubmit, onBack }) {
+//     // const [formData, setFormData] = useState({
+//     //     aadharCard: null,
+//     //     panCard: null,
+//     //     domicile: null,
+//     //     casteCertificate: null,
+//     //     characterCertificate: null,
+//     //     annualIncome: null,
+//     // });
+
+//     // const handleChange = (e) => {
+//     //     const { name, files } = e.target;
+//     //     setFormData({
+//     //         ...formData,
+//     //         [name]: files[0],
+//     //     });
+//     // };
+
+//     // const handleSubmit = (e) => {
+//     //     e.preventDefault();
+//     //     // Handle form submission logic here
+//     //     console.log('Form Data:', formData);
+//     // };
+
+
 import React from 'react';
 import '../Styles/DocumentUploadForm.css';
 
 function DocumentUploadForm({ onSubmit, onBack }) {
-    // const [formData, setFormData] = useState({
-    //     aadharCard: null,
-    //     panCard: null,
-    //     domicile: nuDocumentUploadFormll,
-    //     casteCertificate: null,
-    //     characterCertificate: null,
-    //     annualIncome: null,
-    // });
-
-    // const handleChange = (e) => {
-    //     const { name, files } = e.target;
-    //     setFormData({
-    //         ...formData,
-    //         [name]: files[0],
-    //     });
-    // };
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     // Handle form submission logic here
-    //     console.log('Form Data:', formData);
-    // };
-
     return (
-        <form className="document-upload-form" >
-            <div>
-                <h3>Upload Required Documents</h3><br></br>
-            </div>
+        <form className="document-upload-form">
+            <h3>Upload Required Documents</h3>
             <div className="form-group">
                 <label>Aadhar Card</label>
                 <input type="file" name="aadharCard" />
@@ -51,11 +50,12 @@ function DocumentUploadForm({ onSubmit, onBack }) {
                 <input type="text" name="annualIncome" />
             </div>
             <div className='btn'>
-                <button type="submit" onClick={onBack}>Back</button>
-                <button type="submit" onClick={onSubmit}>Submit</button>
+                <button type="button" onClick={onBack}>Back</button> {/* Changed type to "button" */}
+                <button type="button" onClick={onSubmit}>Submit</button> {/* Changed type to "button" */}
             </div>
-        </form >
+        </form>
     );
 }
 
 export default DocumentUploadForm;
+

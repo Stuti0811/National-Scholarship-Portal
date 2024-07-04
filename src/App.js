@@ -1,12 +1,26 @@
 import './App.css';
-// import Navbar from './Components/Navbar';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PersonalInfoForm from './Components/PersonalInfoForm';
+import Home from './Components/Home';
+import AboutUs from './Components/AboutUs';
+import Error from './Components/Error';
+import TrackingLine from './Components/TrackingLine';
 // import Login from './Components/Login';
-import TrackingLine from './Components/TrackingLine'
-// import DocumentUploadForm from './Components/DocumentUploadform';
 
 function App() {
   return (
-    <TrackingLine></TrackingLine>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<TrackingLine />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+
+
   );
 }
 

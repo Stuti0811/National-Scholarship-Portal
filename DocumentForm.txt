@@ -1,0 +1,60 @@
+// src/components/DocumentUploadForm.js
+import React, { useState } from 'react';
+import '../Styles/DocumentUploadForm.css';
+
+function DocumentUploadForm() {
+    const [formData, setFormData] = useState({
+        aadharCard: null,
+        panCard: null,
+        domicile: null,
+        casteCertificate: null,
+        characterCertificate: null,
+        annualIncome: null,
+    });
+
+    const handleChange = (e) => {
+        const { name, files } = e.target;
+        setFormData({
+            ...formData,
+            [name]: files[0],
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission logic here
+        console.log('Form Data:', formData);
+    };
+
+    return (
+        <form className="document-upload-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+                <label>Aadhar Card</label>
+                <input type="file" name="aadharCard" onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+                <label>PAN Card</label>
+                <input type="file" name="panCard" onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+                <label>Domicile Certificate</label>
+                <input type="file" name="domicile" onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+                <label>Caste Certificate</label>
+                <input type="file" name="casteCertificate" onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+                <label>Character Certificate</label>
+                <input type="file" name="characterCertificate" onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+                <label>Annual Income of Parents</label>
+                <input type="file" name="annualIncome" onChange={handleChange} required />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    );
+}
+
+export default DocumentUploadForm;
