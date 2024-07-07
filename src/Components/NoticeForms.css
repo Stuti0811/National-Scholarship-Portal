@@ -1,0 +1,19 @@
+.notice-forms {
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .notice-forms h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+  }
+  
+  .notice-forms ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .notice-forms li {
+    margin: 5px 0;
+  }
+  
