@@ -1,8 +1,8 @@
 import React from 'react';
 import '../Styles/Footer.css';
-import digitalIndia from '../images/digitalIndia.png';
-import g20 from '../images/g20.png';
-import azadi from '../images/azadi.png';
+import digitalIndia from '../assets/digitalIndia.png';
+import g20 from '../assets/g20.png';
+import azadi from '../assets/azadi.png';
 
 function Footer() {
     return (

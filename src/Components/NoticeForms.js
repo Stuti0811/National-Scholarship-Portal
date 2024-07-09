@@ -1,5 +1,5 @@
 import React from 'react';
-import './NoticeForms.css';
+import '../Styles/NoticeForms.css';
 
 const NoticeForms = () => {
   return (

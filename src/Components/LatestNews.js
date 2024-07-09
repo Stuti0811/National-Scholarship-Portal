@@ -1,5 +1,5 @@
 import React from 'react';
-import './LatestNews.css';
+import '../Styles/LatestNews.css';
 
 const LatestNews = () => {
   return (
