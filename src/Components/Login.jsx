@@ -36,8 +36,13 @@ function Login() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
-        navigate("/home");
+        try {
+            await axios.post('url', loginData);
+            navigate("/home");
+        } catch (err) {
+            console.error('Error sending login data:', err);
+            alert("Login Failed!");
+        }
     };
 
     const handleSignup = async (e) => {
