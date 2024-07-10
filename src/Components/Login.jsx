@@ -36,7 +36,7 @@ function Login() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        // Handle login logic here (e.g., authenticate user)
+
         navigate("/home");
     };
 
