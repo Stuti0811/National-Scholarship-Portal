@@ -1,21 +1,22 @@
-import React from "react";
+import React,{useState} from "react";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom"; // Import useNavigate from React Router DOM
 import '../Styles/Login.css';
 
 function Login() {
     const navigate = useNavigate();
-
+    const [message, setMessage] = useState('');
     const [loginData, setLoginData] = useState({
         email: '',
         password: ''
     });
 
     const [signupData, setSignupData] = useState({
-        fname: '',
-        lname: '',
+        fName: '',
+        lName: '',
         email: '',
-        pass1: '',
-        pass2: ''
+        password: '',
+        cpassword: ''
     });
 
     const handleLoginChange = (event) => {
@@ -37,9 +38,17 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('url', loginData);
-            navigate("/home");
-        } catch (err) {
+           const response= await axios.post('http://localhost:8080/nsp/api/student/login', loginData);
+           if (response.data) {
+            
+            setMessage('Login successful');
+            navigate('/home'); // Navigate to home on successful login
+        } else {
+            setMessage('Invalid credentials');
+            alert("Password is incorrect!");
+        }
+        }
+         catch (err) {
             console.error('Error sending login data:', err);
             alert("Login Failed!");
         }
@@ -47,13 +56,13 @@ function Login() {
 
     const handleSignup = async (e) => {
         e.preventDefault();
-        if (signupData.pass1 !== signupData.pass2) {
+        if (signupData.password !== signupData.cpassword) {
             alert("Passwords should be same!");
             return;
         }
         else {
             try {
-                await axios.post('url', signupData);
+                await axios.post('http://localhost:8080/nsp/api/student/save', signupData);
                 alert("Registeration Successfull!")
             } catch (err) {
                 console.error('Error sending registeration data:', err);
@@ -70,11 +79,11 @@ function Login() {
             <div className="signup">
                 <form onSubmit={handleSignup}>
                     <label htmlFor="chk" aria-hidden="true">Sign up</label>
-                    <input type="text" name="fname" placeholder="First Name" value={signupData.fname} onChange={handleSignupChange} required />
-                    <input type="text" name="lname" placeholder="Last Name" value={signupData.lname} onChange={handleSignupChange} required />
+                    <input type="text" name="fName" placeholder="First Name" value={signupData.fName} onChange={handleSignupChange} required />
+                    <input type="text" name="lName" placeholder="Last Name" value={signupData.lName} onChange={handleSignupChange} required />
                     <input type="email" name="email" placeholder="Email" value={signupData.email} onChange={handleSignupChange} required />
-                    <input type="password" name="pass1" placeholder="Password" value={signupData.pass1} onChange={handleSignupChange} required />
-                    <input type="password" name="pass2" placeholder="Confirm Password" value={signupData.pass2} onChange={handleSignupChange} required />
+                    <input type="password" name="password" placeholder="Password" value={signupData.password} onChange={handleSignupChange} required />
+                    <input type="password" name="cpassword" placeholder="Confirm Password" value={signupData.cpassword} onChange={handleSignupChange} required />
                     <button type="submit">Sign up</button>
                 </form>
             </div>
@@ -83,7 +92,7 @@ function Login() {
                 <form onSubmit={handleLogin}>
                     <label htmlFor="chk" aria-hidden="true">Login</label>
                     <input type="email" name="email" placeholder="Email" value={loginData.email} onChange={handleLoginChange} required />
-                    <input type="password" name="pass" placeholder="Password" value={loginData.password} onChange={handleLoginChange} required />
+                    <input type="password" name="password" placeholder="Password" value={loginData.password} onChange={handleLoginChange} required />
                     <button type="submit">Login</button>
                 </form>
             </div>
