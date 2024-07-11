@@ -1,5 +1,11 @@
 package com.nsp.backend.Repository;
 
-public interface InstituteRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.nsp.backend.model.Institute;
+
+public interface InstituteRepository extends MongoRepository<Institute, String>{
+
+	public Institute findByEmail(String email);
 
 }
