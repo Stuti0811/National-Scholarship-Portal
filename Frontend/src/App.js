@@ -6,15 +6,17 @@ import Home from './Components/Home';
 import Error from './Components/Error';
 // import TrackingLine from './Components/TrackingLine';
 import Login from './Components/Login';
+import LoginInstituteGovt from './Components/LoginInstituteGovt';
 
 function App() {
   return (
     <>
+      {/* <LoginInstituteGovt></LoginInstituteGovt> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          {/* <Route path="/about" element={<AboutUs />} /> */}
+          {/* <Route path="/about" element={<AboutUs />} />  */}
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
