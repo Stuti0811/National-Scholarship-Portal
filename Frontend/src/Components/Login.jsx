@@ -39,7 +39,7 @@ function Login() {
         e.preventDefault();
         try {
             await axios.post('url', loginData);
-            navigate("/home");
+            navigate("/dashboard");
         } catch (err) {
             console.error('Error sending login data:', err);
             alert("Login Failed!");

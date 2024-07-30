@@ -30,7 +30,6 @@ const PersonalInfoForm = ({ onSubmit }) => {
             console.log('Sending data:', formData); // Add this line to log data
             await axios.post('http://localhost:8080/api/forms/save', formData);
             console.log('User data sent successfully');
-            // Clear form fields
             setFormData({
                 firstName: '',
                 middleName: '',

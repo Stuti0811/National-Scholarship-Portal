@@ -3,6 +3,7 @@ import '../Styles/Header.css';
 import logo from '../assets/logo.png';
 import logo2 from '../assets/logo2.png';
 import logo3 from '../assets/logo3.png';
+import { Link } from 'react-scroll';
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -20,21 +21,18 @@ const Header = () => {
         National Scholarship Portal
       </div>
       <nav className="nav">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <div
-          className="dropdown"
-          onMouseEnter={toggleDropdown}
-          onMouseLeave={toggleDropdown}
-        >
-          <a href="#login" className="dropbtn">
+        <li><Link to="/home" smooth={true} duration={500}>Home</Link></li>
+        <li><Link to="/about" smooth={true} duration={500}>About Us</Link></li>
+
+        <div className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+          <a href="" className="dropbtn">
             Login <span className="arrow">&#9660;</span>
           </a>
           {dropdownOpen && (
             <div className="dropdown-content">
-              <a href="#student-login">Student Login</a>
-              <a href="#institute-login">Institute Login</a>
-              <a href="#government-login">Government Login</a>
+              <a href="/login">Student Login</a>
+              <a href="/loginInstituteGovt">Institute Login</a>
+              <a href="/loginInstituteGovt">Government Login</a>
             </div>
           )}
         </div>

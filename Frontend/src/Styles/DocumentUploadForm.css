@@ -70,16 +70,6 @@
     margin-top: 1rem;
 }
 
-.btn button:hover {
-    background-color: #0056b3;
-}
-.btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
-}
-
 .btn button {
     padding: 12px;
     background-color: #007bff;
@@ -95,4 +85,117 @@
 
 .btn button:first-child {
     margin-right: 10px; /* Additional margin on the right of the first button */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .document-upload-form {
+        padding: 20px;
+    }
+
+    .document-upload-form .form-group label {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .document-upload-form {
+        padding: 15px;
+    }
+
+    .document-upload-form h3 {
+        font-size: 1.5rem;
+    }
+
+    .document-upload-form .form-group label {
+        font-size: 1.2rem;
+    }
+
+    .btn button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .document-upload-form {
+        margin: 1.5rem auto;
+        padding: 15px;
+    }
+
+    .document-upload-form h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .document-upload-form .form-group input[type="file"],
+    .document-upload-form .form-group input[type="text"] {
+        font-size: 14px;
+        height: 35px;
+    }
+
+    .btn {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn button {
+        margin: 5px 0;
+    }
+
+    .btn button:first-child {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .document-upload-form {
+        margin: 1rem auto;
+        padding: 10px;
+    }
+
+    .document-upload-form h3 {
+        font-size: 1.2rem;
+    }
+
+    .document-upload-form .form-group label {
+        font-size: 1rem;
+    }
+
+    .document-upload-form .form-group input[type="file"],
+    .document-upload-form .form-group input[type="text"] {
+        font-size: 12px;
+        height: 30px;
+    }
+
+    .btn button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    .document-upload-form {
+        margin: 0.5rem auto;
+        padding: 8px;
+    }
+
+    .document-upload-form h3 {
+        font-size: 1.1rem;
+    }
+
+    .document-upload-form .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .document-upload-form .form-group input[type="file"],
+    .document-upload-form .form-group input[type="text"] {
+        font-size: 10px;
+        height: 28px;
+    }
+
+    .btn button {
+        font-size: 10px;
+        padding: 6px;
+    }
 }

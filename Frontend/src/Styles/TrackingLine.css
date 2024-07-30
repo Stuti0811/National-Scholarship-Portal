@@ -6,6 +6,11 @@
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.two-step-form-page:hover {
+    transform: scale(1.01);
 }
 
 .tracking-line {
@@ -22,6 +27,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1rem;
 }
 
 .tracking-line .step.active {
@@ -31,4 +37,80 @@
 
 .forms {
     margin-top: 2rem;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1200px) {
+    .two-step-form-page {
+        padding: 15px;
+    }
+
+    .tracking-line .step {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .two-step-form-page {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .tracking-line {
+        margin-bottom: 1.5rem;
+    }
+
+    .tracking-line .step {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .two-step-form-page {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .tracking-line {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .tracking-line .step {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    .forms {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .two-step-form-page {
+        padding: 8px;
+    }
+
+    .tracking-line .step {
+        font-size: 0.75rem;
+        padding: 8px;
+    }
+
+    .forms {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .two-step-form-page {
+        padding: 5px;
+        width: 100%;
+    }
+
+    .tracking-line .step {
+        font-size: 0.7rem;
+        padding: 6px;
+    }
 }

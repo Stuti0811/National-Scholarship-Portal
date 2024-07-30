@@ -1,7 +1,4 @@
-/* src/Styles/Footer.css */
-
 .footer {
-    /* background: linear-gradient(to right, #6a11cb, #2575fc); */
     background: grey;
     color: white;
     padding: 20px 0;
@@ -24,6 +21,7 @@
 
 .footer-columns {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
     margin-top: 20px;
@@ -31,11 +29,13 @@
 
 .footer-column {
     padding: 0 10px;
+    flex: 1;
+    min-width: 200px; /* Ensure columns stack on small screens */
 }
 
 .contact-details {
     flex: 4;
-    text-align: left; /* Align contact details to the left */
+    text-align: left;
     margin-left: 6rem;
 }
 
@@ -46,17 +46,20 @@
 
 .footer-media .footer-images {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    height: 9rem;
-    width: 52rem;
+    height: auto;
+    width: 100%;
 }
 
 .footer-media .footer-images a img {
-    width: 90%;
-    height: 9rem;
+    width: 100%;
+    max-width: 150px; /* Set a maximum width */
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+    margin: 5px;
 }
 
 .footer-media .footer-images img:hover {
@@ -65,13 +68,14 @@
 
 .footer-options {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .footer-options a {
     color: white;
-    margin: 5px 0;
+    margin: 5px 10px;
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 1.1em;
@@ -84,12 +88,13 @@
 .footer-links {
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .footer-links a {
     color: white;
-    margin: 0 10px;
+    margin: 5px 10px;
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 1.1em;
@@ -97,4 +102,88 @@
 
 .footer-links a:hover {
     color: grey;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .footer p {
+        font-size: 1.1em;
+    }
+
+    .footer-options a,
+    .footer-links a {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer p {
+        font-size: 1em;
+    }
+
+    .contact-details {
+        margin-left: 3rem;
+    }
+
+    .footer-media .footer-images a img {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer p {
+        font-size: 0.9em;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-details {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .footer-media {
+        text-align: center;
+    }
+
+    .footer-media .footer-images a img {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer p {
+        font-size: 0.8em;
+    }
+
+    .footer-content {
+        padding: 0 10px;
+    }
+
+    .footer-options a,
+    .footer-links a {
+        font-size: 0.9em;
+    }
+
+    .footer-media .footer-images a img {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 360px) {
+    .footer p {
+        font-size: 0.7em;
+    }
+
+    .footer-options a,
+    .footer-links a {
+        font-size: 0.8em;
+    }
+
+    .footer-media .footer-images a img {
+        max-width: 70px;
+    }
 }

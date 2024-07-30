@@ -21,13 +21,13 @@ function Footer() {
                     <div className="footer-column footer-media">
                         <div className="footer-images">
                             <a href="https://www.digitalindia.gov.in" target="_blank" rel="noopener noreferrer">
-                                <img src={digitalIndia} alt="Image 1" />
+                                <img src={digitalIndia} alt="Logo 1" />
                             </a>
                             <a href="https://moes.gov.in/" target="_blank" rel="noopener noreferrer">
-                                <img src={g20} alt="Image 2" />
+                                <img src={g20} alt="Logo 2" />
                             </a>
                             <a href="https://www.education.gov.in/azadi/" target="_blank" rel="noopener noreferrer">
-                                <img src={azadi} alt="Image 3" />
+                                <img src={azadi} alt="Logo 3" />
                             </a>
 
                         </div>
