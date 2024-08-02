@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import '../Styles/Header.css';
-import logo from '../assets/logo.png';
-import logo2 from '../assets/logo2.png';
-import logo3 from '../assets/logo3.png';
-import { Link } from 'react-scroll';
+import React, { useState } from "react";
+import "../Styles/Header.css";
+import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
+import logo3 from "../assets/logo3.png";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -17,15 +17,25 @@ const Header = () => {
       <div className="logo">
         <img src={logo} alt="Logo" />
       </div>
-      <div className="title">
-        National Scholarship Portal
-      </div>
+      <div className="title">National Scholarship Portal</div>
       <nav className="nav">
-        <li><Link to="/home" smooth={true} duration={500}>Home</Link></li>
-        <li><Link to="/about" smooth={true} duration={500}>About Us</Link></li>
+        <li>
+          <Link to="/home" smooth={true} duration={500}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" smooth={true} duration={500}>
+            About Us
+          </Link>
+        </li>
 
-        <div className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
-          <a href="" className="dropbtn">
+        <div
+          className="dropdown"
+          onMouseEnter={toggleDropdown}
+          onMouseLeave={toggleDropdown}
+        >
+          <a className="dropbtn">
             Login <span className="arrow">&#9660;</span>
           </a>
           {dropdownOpen && (
@@ -38,8 +48,20 @@ const Header = () => {
         </div>
       </nav>
       <div className="extra-logos">
-        <img src={logo2} alt="Extra Logo 1" className="extra-logo" />
-        <img src={logo3} alt="Extra Logo 2" className="extra-logo" />
+        <a
+          href="https://www.digitalindia.gov.in"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={logo3} alt="Logo 1" className="extra-logo" />
+        </a>
+        <a
+          href="https://moes.gov.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={logo2} alt="Logo 2" className="extra-logo" />
+        </a>
       </div>
     </header>
   );

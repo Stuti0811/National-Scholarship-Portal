@@ -26,8 +26,8 @@
     display: block;
     color: #555;
     font-weight: bold;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 0px;
 }
 
 .document-upload-form .form-group input[type="file"],
@@ -37,16 +37,12 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    height: 40px; /* Adjusted height */
+    height: 2.5rem;
 }
 
-.document-upload-form .form-group input[type="text"] {
-    margin-top: 5px;
-}
-
-.document-upload-form .form-group input[type="file"] {
-    margin-top: 5px;
-    margin-bottom: 1.5rem;
+ .document-upload-form .form-group input[type="text"] {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .document-upload-form .form-group input[type="file"]::-webkit-file-upload-button {

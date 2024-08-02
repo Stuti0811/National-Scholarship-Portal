@@ -1,8 +1,8 @@
-import React from 'react';
-import '../App.css';
-import Banner from './Banner';
-import LatestNews from './LatestNews';
-import NoticeForms from './NoticeForms';
+import React from "react";
+import "../Styles/App.css";
+import Banner from "./Banner";
+import LatestNews from "./LatestNews";
+import NoticeForms from "./NoticeForms";
 
 const App = () => {
   return (

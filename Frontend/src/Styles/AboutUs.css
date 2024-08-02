@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
     margin: 0;
@@ -238,4 +238,136 @@ html, body {
     .team-member p {
         font-size: 0.6em;
     }
+} */
+/* Main container to occupy full width without gaps */
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0; /* Top and bottom padding only */
+  background-color: #f5f5f5; /* Light grey background */
+  max-width: 98%;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    box-shadow: 10px 5px 15px 0px rgba(128, 128, 128, 0.5);
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-right: 20px; /* Space between image and text */
+}
+
+.image {
+  width: 100%;
+  max-width: 400px; /* Set a max width for the image */
+  /* border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  object-fit: cover;
+}
+
+.textContainer {
+  flex: 2;
+  padding: 0 20px; /* Padding on left and right */
+}
+
+.title {
+  font-size: 3rem; /* Larger font size for full width */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.description {
+  font-size: 1.1rem; /* Slightly larger for readability */
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.socialIcons i {
+  font-size: 1.8rem; /* Larger icon size */
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.socialIcons i:hover {
+  color: #007bff; /* Hover color */
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .container {
+    padding: 20px 0;
+  }
+
+  .imageContainer {
+    padding-right: 10px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .socialIcons {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageContainer {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .textContainer {
+    padding: 0;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .socialIcons {
+    justify-content: center;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .image {
+    max-width: 100%;
+    height: auto;
+  }
 }

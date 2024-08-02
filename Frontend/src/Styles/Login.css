@@ -1,25 +1,20 @@
-/* :root {
-    --primary: #0088a7;
-} */
-
 body {
     margin: 0;
-    padding: 0;
+    padding: 0rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
     font-family: 'Josf', sans-serif;
     width: 100%;
-    /* background: linear-gradient(to top, #c0ebff, rgb(204, 239, 255), #ffffff); */
 }
 
 .main {
     width: 36rem;
-    height: 50rem;
+    height: 40rem;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 5px 20px 50px #000;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
 }
 
 #chk {
@@ -29,12 +24,12 @@ body {
 .signup {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 41rem;
 }
 
 label {
     color: var(--primary);
-    font-size: 3rem;
+    font-size: 2rem;
     justify-content: center;
     display: flex;
     margin-top: 3.5rem;
@@ -80,7 +75,7 @@ button:hover {
 }
 
 .login {
-    height: 48rem;
+    height: 49rem;
     background: #eee;
     border-radius: 60% / 10%;
     transform: translateY(-180px);
@@ -94,7 +89,7 @@ button:hover {
 }
 
 #chk:checked~.login {
-    transform: translateY(-700px);
+    transform: translateY(-585px);
 }
 
 #chk:checked~.login label {

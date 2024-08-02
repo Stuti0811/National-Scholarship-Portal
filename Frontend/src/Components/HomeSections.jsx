@@ -1,29 +1,28 @@
-import React from 'react';
-import { Element } from 'react-scroll';
-import Home from './Home';
-import AboutUs from './AboutUs';
-import Header from './Header';
-import Footer from './Footer';
+import React from "react";
+import { Element } from "react-scroll";
+import Home from "./Home";
+import AboutUs from "./AboutUs";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const HomeSections = () => {
-    return (
-        <div>
+  return (
+    <div>
+      <nav>
+        <Header />
+      </nav>
+      <br></br>
+      <Element name="/home">
+        <Home />
+      </Element>
 
-            <nav>
-                <Header />
-            </nav>
+      <Element name="/about">
+        <AboutUs />
+      </Element>
 
-            <Element name="/home">
-                <Home />
-            </Element>
-
-            <Element name="/about">
-                <AboutUs />
-            </Element>
-
-            <Footer></Footer>
-        </div>
-    );
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default HomeSections;
