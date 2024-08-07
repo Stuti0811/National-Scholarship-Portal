@@ -2,7 +2,7 @@ package com.nsp.backend.model;
 
 import java.sql.Date;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -18,6 +18,7 @@ public class PersonalInfo {
 	private String lastName;
 	@JsonFormat(pattern = "yyyy-MM-dd")
     private Date dob;
+	@Id
 	@Email
 	@NotBlank
 	private String email;
