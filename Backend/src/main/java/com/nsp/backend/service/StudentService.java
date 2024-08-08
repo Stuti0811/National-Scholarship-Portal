@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.nsp.backend.Repository.PersonalInfoRepo;
 import com.nsp.backend.Repository.StudentRepository;
-import com.nsp.backend.model.PersonalInfo;
 import com.nsp.backend.model.Student;
 
 @Service

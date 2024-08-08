@@ -31,11 +31,12 @@ public class CombinedForm {
     private String currentAddress;
 
     // Document upload fields
-    private byte[] aadharCard;
-    private byte[] panCard;
-    private byte[] domicile;
-    private byte[] casteCertificate;
-    private byte[] characterCertificate;
+    private byte[] encryptedAadharCard;
+    private byte[] encryptedPanCard;
+    private byte[] encryptedDomicile;
+    private byte[] encryptedCasteCertificate;
+    private byte[] encryptedCharacterCertificate;
+    private byte[] encryptedAESKey;
 
     // Getters and setters
     public String getFirstName() {
@@ -126,43 +127,53 @@ public class CombinedForm {
         this.currentAddress = currentAddress;
     }
 
-    public byte[] getAadharCard() {
-        return aadharCard;
-    }
+	public byte[] getEncryptedAadharCard() {
+		return encryptedAadharCard;
+	}
 
-    public void setAadharCard(byte[] aadharCard) {
-        this.aadharCard = aadharCard;
-    }
+	public void setEncryptedAadharCard(byte[] encryptedAadharCard) {
+		this.encryptedAadharCard = encryptedAadharCard;
+	}
 
-    public byte[] getPanCard() {
-        return panCard;
-    }
+	public byte[] getEncryptedPanCard() {
+		return encryptedPanCard;
+	}
 
-    public void setPanCard(byte[] panCard) {
-        this.panCard = panCard;
-    }
+	public void setEncryptedPanCard(byte[] encryptedPanCard) {
+		this.encryptedPanCard = encryptedPanCard;
+	}
 
-    public byte[] getDomicile() {
-        return domicile;
-    }
+	public byte[] getEncryptedDomicile() {
+		return encryptedDomicile;
+	}
 
-    public void setDomicile(byte[] domicile) {
-        this.domicile = domicile;
-    }
+	public void setEncryptedDomicile(byte[] encryptedDomicile) {
+		this.encryptedDomicile = encryptedDomicile;
+	}
 
-    public byte[] getCasteCertificate() {
-        return casteCertificate;
-    }
+	public byte[] getEncryptedCasteCertificate() {
+		return encryptedCasteCertificate;
+	}
 
-    public void setCasteCertificate(byte[] casteCertificate) {
-        this.casteCertificate = casteCertificate;
-    }
+	public void setEncryptedCasteCertificate(byte[] encryptedCasteCertificate) {
+		this.encryptedCasteCertificate = encryptedCasteCertificate;
+	}
 
-    public byte[] getCharacterCertificate() {
-        return characterCertificate;
-    }
+	public byte[] getEncryptedCharacterCertificate() {
+		return encryptedCharacterCertificate;
+	}
 
-    public void setCharacterCertificate(byte[] characterCertificate) {
-        this.characterCertificate = characterCertificate;
-    }
+	public void setEncryptedCharacterCertificate(byte[] encryptedCharacterCertificate) {
+		this.encryptedCharacterCertificate = encryptedCharacterCertificate;
+	}
+
+	public byte[] getEncryptedAESKey() {
+		return encryptedAESKey;
+	}
+
+	public void setEncryptedAESKey(byte[] encryptedAESKey) {
+		this.encryptedAESKey = encryptedAESKey;
+	}
+
+    
 }

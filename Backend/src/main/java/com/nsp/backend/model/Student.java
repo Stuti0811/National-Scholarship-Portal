@@ -1,14 +1,8 @@
 package com.nsp.backend.model;
 
 import java.nio.charset.StandardCharsets;
-import java.sql.Date;
 import java.util.Base64;
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 

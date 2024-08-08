@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../Styles/PersonalInfoForm.css";
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
 function Ntse() {
   const [formData, setFormData] = useState({
+    email: "",  // Adding email field to link with PersonalInfoForm
     nationality: "",
     marks: "",
     marksheet: null,
@@ -12,6 +16,12 @@ function Ntse() {
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
     if (type === "file") {
+      const file = files[0];
+      if (file && file.size > MAX_FILE_SIZE) {
+        alert("File size exceeds the maximum limit of 5MB.");
+        e.target.value = null;
+        return;
+      }
       setFormData((prevData) => ({ ...prevData, [name]: files[0] }));
     } else {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -20,8 +30,22 @@ function Ntse() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("nationality", formData.nationality);
+    formDataToSend.append("specialChild", formData.specialChild);
+    formDataToSend.append("marks", formData.marks);
+    if (formData.marksheet) {
+      formDataToSend.append("marksheet", formData.marksheet);
+    }
+
     try {
-      await axios.post("http://localhost:8080/api/forms/save", formData);
+      await axios.post("http://localhost:8080/nsp/api/ntse/save", formDataToSend, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
       console.log("User data sent successfully");
     } catch (err) {
       console.error("Error sending user data:", err);
@@ -35,6 +59,15 @@ function Ntse() {
         <h3 className="heading head">NTSE Scholarship Form</h3>
 
         <div className="form-group">
+          <label>Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+
           <label>Nationality:</label>
           <input
             type="text"

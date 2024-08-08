@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.nsp.backend.model.CombinedForm;
 import com.nsp.backend.service.CombinedFormService;
 
 @RestController
@@ -40,11 +41,26 @@ public class CombinedFormController {
 	            @RequestParam("characterCertificate") MultipartFile characterCertificate) {
 
 	        try {
-	            formService.saveForm(firstName, middleName, lastName, dob, email, phone, city, state, pincode, permanentAddress, currentAddress, aadharCard, panCard, domicile, casteCertificate, characterCertificate);
+	        	CombinedForm cf = new CombinedForm();
+	        	cf.setFirstName(firstName);
+	        	cf.setLastName(lastName);
+	        	cf.setMiddleName(middleName);
+	        	cf.setDob(dob);
+	        	cf.setEmail(email);
+	        	cf.setPhone(phone);
+	        	cf.setCity(city);
+	        	cf.setState(state);
+	        	cf.setPincode(pincode);
+	        	cf.setPermanentAddress(permanentAddress);
+	        	cf.setCurrentAddress(currentAddress);
+	        	
+	            formService.saveForm(cf, aadharCard.getBytes(), panCard.getBytes(), domicile.getBytes(), casteCertificate.getBytes(), characterCertificate.getBytes());
 	            return ResponseEntity.ok("Data saved successfully.");
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	            return ResponseEntity.status(500).body("Error saving data.");
 	        }
 	    }
+	    
+	    
 }

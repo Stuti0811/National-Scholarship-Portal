@@ -1,40 +1,44 @@
 package com.nsp.backend.service;
 
-import java.io.IOException;
-import java.sql.Date;
+import java.security.KeyPair;
+
+import javax.crypto.SecretKey;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.nsp.backend.Repository.CombinedFormRepository;
 import com.nsp.backend.model.CombinedForm;
+import com.nsp.backend.util.EncryptionUtil;
 
 @Service
 public class CombinedFormService {
-	 @Autowired
-	    private CombinedFormRepository combinedFormRepository;
+	 	@Autowired
+	    private CombinedFormRepository cfrepo;
 
-	    public void saveForm(String firstName, String middleName, String lastName, Date dob, String email, long phone, String city, String state, long pincode, String permanentAddress, String currentAddress, MultipartFile aadharCard, MultipartFile panCard, MultipartFile domicile, MultipartFile casteCertificate, MultipartFile characterCertificate) throws IOException {
+	    public void saveForm(CombinedForm combinedForm , byte[] aadharCard, byte[] panCard, byte[] domicile, byte[] casteCertificate, byte[] characterCertificate) throws Exception {
 	        
-	        CombinedForm combinedForm = new CombinedForm();
-	        combinedForm.setFirstName(firstName);
-	        combinedForm.setMiddleName(middleName);
-	        combinedForm.setLastName(lastName);
-	        combinedForm.setDob(dob);
-	        combinedForm.setEmail(email);
-	        combinedForm.setPhone(phone);
-	        combinedForm.setCity(city);
-	        combinedForm.setState(state);
-	        combinedForm.setPincode(pincode);
-	        combinedForm.setPermanentAddress(permanentAddress);
-	        combinedForm.setCurrentAddress(currentAddress);
-	        combinedForm.setAadharCard(aadharCard.getBytes());
-	        combinedForm.setPanCard(panCard.getBytes());
-	        combinedForm.setDomicile(domicile.getBytes());
-	        combinedForm.setCasteCertificate(casteCertificate.getBytes());
-	        combinedForm.setCharacterCertificate(characterCertificate.getBytes());
+	    	SecretKey aesKey = EncryptionUtil.generateAESKey();
+	    	 
+	       byte[] encryptedAadharCard = EncryptionUtil.encryptDataWithAES(aadharCard, aesKey);
+	       byte[] encryptedPanCard = EncryptionUtil.encryptDataWithAES(panCard, aesKey);
+	       byte[] encryptedDomicile = EncryptionUtil.encryptDataWithAES(domicile, aesKey);
+	       byte[] encryptedCasteCertificate = EncryptionUtil.encryptDataWithAES(casteCertificate, aesKey);
+	       byte[] encryptedCharacterCertificate = EncryptionUtil.encryptDataWithAES(characterCertificate, aesKey);
+	       
+	       KeyPair rsaKeyPair = EncryptionUtil.generateRSAKeyPair();
+	       
+	       byte[] encryptedAESKey= EncryptionUtil.encryptAESKeyWithRSA(aesKey, rsaKeyPair.getPublic());
 
-	        combinedFormRepository.save(combinedForm);
+	    		 
+	    	
+	        combinedForm.setEncryptedAadharCard(encryptedAadharCard);
+	        combinedForm.setEncryptedPanCard(encryptedPanCard);
+	        combinedForm.setEncryptedDomicile(encryptedDomicile);
+	        combinedForm.setEncryptedCasteCertificate(encryptedCasteCertificate);
+	        combinedForm.setEncryptedCharacterCertificate(encryptedCharacterCertificate);
+	        combinedForm.setEncryptedAESKey(encryptedAESKey);
+
+	        cfrepo.save(combinedForm);
 	    }
 }

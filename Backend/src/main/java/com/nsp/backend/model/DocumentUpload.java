@@ -3,48 +3,50 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "documents")
 public class DocumentUpload {
-	private byte[] tenthMarksheet;
-	private byte[] aadharCard;
-	private byte[] panCard;
-	private byte[] domicile;
-	private byte[] casteCertificate;
-	private byte[] characterCertificate;
+	private byte[] encryptedAadharCard;
+	private byte[] encryptedPanCard;
+	private byte[] encryptedDomicile;
+	private byte[] encryptedCasteCertificate;
+	private byte[] encryptedCharacterCertificate;
+	private byte[] encryptedAESKey;
 	
-	public byte[] getTenthMarksheet() {
-		return tenthMarksheet;
+
+	public byte[] getEncryptedAadharCard() {
+		return encryptedAadharCard;
 	}
-	public void setTenthMarksheet(byte[] tenthMarksheet) {
-		this.tenthMarksheet = tenthMarksheet;
+	public void setEncryptedAadharCard(byte[] encryptedAadharCard) {
+		this.encryptedAadharCard = encryptedAadharCard;
 	}
-	public byte[] getAadharCard() {
-		return aadharCard;
+	public byte[] getEncryptedPanCard() {
+		return encryptedPanCard;
 	}
-	public void setAadharCard(byte[] aadharCard) {
-		this.aadharCard = aadharCard;
+	public void setEncryptedPanCard(byte[] encryptedPanCard) {
+		this.encryptedPanCard = encryptedPanCard;
 	}
-	public byte[] getPanCard() {
-		return panCard;
+	public byte[] getEncryptedDomicile() {
+		return encryptedDomicile;
 	}
-	public void setPanCard(byte[] panCard) {
-		this.panCard = panCard;
+	public void setEncryptedDomicile(byte[] encryptedDomicile) {
+		this.encryptedDomicile = encryptedDomicile;
 	}
-	public byte[] getDomicile() {
-		return domicile;
+	public byte[] getEncryptedCasteCertificate() {
+		return encryptedCasteCertificate;
 	}
-	public void setDomicile(byte[] domicile) {
-		this.domicile = domicile;
+	public void setEncryptedCasteCertificate(byte[] encryptedCasteCertificate) {
+		this.encryptedCasteCertificate = encryptedCasteCertificate;
 	}
-	public byte[] getCasteCertificate() {
-		return casteCertificate;
+	public byte[] getEncryptedCharacterCertificate() {
+		return encryptedCharacterCertificate;
 	}
-	public void setCasteCertificate(byte[] casteCertificate) {
-		this.casteCertificate = casteCertificate;
+	public void setEncryptedCharacterCertificate(byte[] encryptedCharacterCertificate) {
+		this.encryptedCharacterCertificate = encryptedCharacterCertificate;
 	}
-	public byte[] getCharacterCertificate() {
-		return characterCertificate;
+	public byte[] getEncryptedAESKey() {
+		return encryptedAESKey;
 	}
-	public void setCharacterCertificate(byte[] characterCertificate) {
-		this.characterCertificate = characterCertificate;
+	public void setEncryptedAESKey(byte[] encryptedAESKey) {
+		this.encryptedAESKey = encryptedAESKey;
 	}
+	
 	
 }

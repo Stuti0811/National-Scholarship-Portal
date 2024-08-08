@@ -22,8 +22,12 @@ function LoginInstituteGovt() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('url', loginIGData);
-            navigate("/home");
+            const response = await axios.post("http://localhost:8080/nsp/api/institute/login", loginIGData);
+            if (response.data) {
+                navigate("/instituteDashboard");
+            } else {
+                alert("Login Failed!");
+            }
         } catch (err) {
             console.error('Error sending login data:', err);
             alert("Login Failed!");
@@ -35,7 +39,7 @@ function LoginInstituteGovt() {
             <form onSubmit={handleLogin}>
                 <label htmlFor="chk" aria-hidden="true">Login</label>
                 <input type="email" name="email" placeholder="Email" value={loginIGData.email} onChange={handleChange} required />
-                <input type="password" name="pass" placeholder="Password" value={loginIGData.password} onChange={handleChange} required />
+                <input type="password" name="password" placeholder="Password" value={loginIGData.password} onChange={handleChange} required />
                 <button type="submit">Login</button>
             </form>
         </div>

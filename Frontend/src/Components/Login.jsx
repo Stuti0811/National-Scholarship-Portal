@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from React Router DOM
+import { useNavigate } from "react-router-dom";
 import '../Styles/Login.css';
 
 function Login() {
@@ -8,15 +8,15 @@ function Login() {
 
     const [loginData, setLoginData] = useState({
         email: '',
-        pass: ''
+        password: ''
     });
 
     const [signupData, setSignupData] = useState({
         fname: '',
         lname: '',
         email: '',
-        pass1: '',
-        pass2: ''
+        password: '',
+        cpassword: ''
     });
 
     const handleLoginChange = (event) => {
@@ -38,8 +38,12 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('url', loginData);
-            navigate("/dashboard");
+            const response = await axios.post("http://localhost:8080/nsp/api/student/login", loginData);
+            if (response.data) {
+                navigate("/dashboard");
+            } else {
+                alert("Login Failed!");
+            }
         } catch (err) {
             console.error('Error sending login data:', err);
             alert("Login Failed!");
@@ -48,19 +52,16 @@ function Login() {
 
     const handleSignup = async (e) => {
         e.preventDefault();
-        if (signupData.pass1 !== signupData.pass2) {
-            alert("Passwords should be same!");
+        if (signupData.password !== signupData.cpassword) {
+            alert("Passwords should be the same!");
             return;
         }
-        else {
-            try {
-                await axios.post('url', signupData);
-                alert("Registeration Successfull!")
-            } catch (err) {
-                console.error('Error sending registeration data:', err);
-                alert("Registeration Failed!");
-            }
-            console.log(signupData);
+        try {
+            await axios.post("http://localhost:8080/nsp/api/student/save", signupData);
+            alert("Registration Successful!");
+        } catch (err) {
+            console.error('Error sending registration data:', err);
+            alert("Registration Failed!");
         }
     };
 
@@ -74,8 +75,8 @@ function Login() {
                     <input type="text" name="fname" placeholder="First Name" value={signupData.fname} onChange={handleSignupChange} required />
                     <input type="text" name="lname" placeholder="Last Name" value={signupData.lname} onChange={handleSignupChange} required />
                     <input type="email" name="email" placeholder="Email" value={signupData.email} onChange={handleSignupChange} required />
-                    <input type="password" name="pass1" placeholder="Password" value={signupData.pass1} onChange={handleSignupChange} required />
-                    <input type="password" name="pass2" placeholder="Confirm Password" value={signupData.pass2} onChange={handleSignupChange} required />
+                    <input type="password" name="password" placeholder="Password" value={signupData.password} onChange={handleSignupChange} required />
+                    <input type="password" name="cpassword" placeholder="Confirm Password" value={signupData.cpassword} onChange={handleSignupChange} required />
                     <button type="submit">Sign up</button>
                 </form>
             </div>
@@ -84,7 +85,7 @@ function Login() {
                 <form onSubmit={handleLogin}>
                     <label htmlFor="chk" aria-hidden="true">Login</label>
                     <input type="email" name="email" placeholder="Email" value={loginData.email} onChange={handleLoginChange} required />
-                    <input type="password" name="pass" placeholder="Password" value={loginData.password} onChange={handleLoginChange} required />
+                    <input type="password" name="password" placeholder="Password" value={loginData.password} onChange={handleLoginChange} required />
                     <button type="submit">Login</button>
                 </form>
             </div>

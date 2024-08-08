@@ -3,7 +3,6 @@ package com.nsp.backend.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,9 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nsp.backend.Exception.ResourceNotFoundException;
 import com.nsp.backend.model.Student;
-
-import com.nsp.backend.model.Student;
-import com.nsp.backend.service.PersonalInfoService;
 import com.nsp.backend.service.StudentService;
 
 @RestController
