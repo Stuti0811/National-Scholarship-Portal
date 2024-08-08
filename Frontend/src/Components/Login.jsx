@@ -12,8 +12,8 @@ function Login() {
     });
 
     const [signupData, setSignupData] = useState({
-        fname: '',
-        lname: '',
+        fName: '',
+        lName: '',
         email: '',
         password: '',
         cpassword: ''
