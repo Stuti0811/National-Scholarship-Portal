@@ -19,7 +19,7 @@ import com.nsp.backend.service.CasteService;
 
 @RestController
 @RequestMapping("/api/caste")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3003")
 public class CasteController {
 
     @Autowired
