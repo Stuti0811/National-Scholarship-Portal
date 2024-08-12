@@ -72,8 +72,8 @@ function Login() {
             <div className="signup">
                 <form onSubmit={handleSignup}>
                     <label className="signup-label" htmlFor="chk" aria-hidden="true">Sign up</label>
-                    <input className="login-input" type="text" name="fname" placeholder="First Name" value={signupData.fname} onChange={handleSignupChange} required />
-                    <input className="login-input" type="text" name="lname" placeholder="Last Name" value={signupData.lname} onChange={handleSignupChange} required />
+                    <input className="login-input" type="text" name="fName" placeholder="First Name" value={signupData.fname} onChange={handleSignupChange} required />
+                    <input className="login-input" type="text" name="lName" placeholder="Last Name" value={signupData.lname} onChange={handleSignupChange} required />
                     <input className="login-input" type="email" name="email" placeholder="Email" value={signupData.email} onChange={handleSignupChange} required />
                     <input className="login-input" type="password" name="password" placeholder="Password" value={signupData.password} onChange={handleSignupChange} required />
                     <input className="login-input" type="password" name="cpassword" placeholder="Confirm Password" value={signupData.cpassword} onChange={handleSignupChange} required />

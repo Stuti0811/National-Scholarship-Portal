@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import logo1 from '../assets/logo1.png';
-import '../Styles/NtseStudentList.css';
+import '../Styles/NtseStudentList.css'; // Import the CSS file
 
-function GovtNtseStudentList() {
+function CasteStudentList() {
     const [students, setStudents] = useState([]);
-    const [selectedFile, setSelectedFile] = useState(null);
-
+    const navigate = useNavigate(); // For navigation
 
     useEffect(() => {
-        axios.get('http://localhost:8080/nsp/api/studentslist/getall')
+        axios.get('http://localhost:8080/nsp/api/castestudentslist/getall')
             .then(response => {
                 setStudents(response.data);
             })
@@ -20,32 +20,19 @@ function GovtNtseStudentList() {
             });
     }, []);
 
-    const handleFileChange = (event) => {
-        setSelectedFile(event.target.files[0]);
+    const handleDelete = (email) => {
+        axios.delete(`http://localhost:8080/nsp/api/castestudentslist/delete/${email}`)
+            .then(() => {
+                setStudents(students.filter(student => student.email !== email));
+            })
+            .catch(error => {
+                console.error('Error deleting student:', error);
+            });
     };
 
-    const handleApprove = (studentEmail, file) => {
-        const formData = new FormData();
-        formData.append("email", studentEmail);
-        formData.append("file", selectedFile);
-    
-        axios.post('http://localhost:8080/nsp/api/email/send', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(response => {
-            alert('Email sent successfully');
-        })
-        .catch(error => {
-            alert('Failed to send email');
-            console.error('There was an error sending the email!', error);
-        });
+    const handleNameClick = (email) => {
+        navigate(`/castestudent/${email}`);
     };
-    
-    
-    
-
 
     return (
         <div className="student-list-wrapper">
@@ -76,19 +63,20 @@ function GovtNtseStudentList() {
                             <tr className="table-header">
                                 <th className="header-cell">Name</th>
                                 <th className="header-cell">Email</th>
-                                <th className="header-cell">Accept</th>
+                                <th className="header-cell">Reject</th>
                             </tr>
                         </thead>
                         <tbody>
                             {students.map(student => (
                                 <tr key={student.email} className="table-row">
-                                    <td className="name-cell">{student.fullName}</td>
+                                    <td className="name-cell">
+                                        <button className="view-button" onClick={() => handleNameClick(student.email)}>
+                                            {student.fullName}
+                                        </button>
+                                    </td>
                                     <td className="email-cell">{student.email}</td>
                                     <td className="actions-cell">
-                                        <button className="delete-button" onClick={() => handleApprove(student.email)}>Approve</button>
-                                    </td>
-                                    <td className="file-cell">
-                                        <input type="file" onChange={handleFileChange} />
+                                        <button className="delete-button" onClick={() => handleDelete(student.email)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}
@@ -96,9 +84,8 @@ function GovtNtseStudentList() {
                     </table>
                 </div>
             </div>
-
         </div>
     );
 }
 
-export default GovtNtseStudentList;
+export default CasteStudentList;

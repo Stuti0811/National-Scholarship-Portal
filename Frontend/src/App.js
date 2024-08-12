@@ -9,8 +9,10 @@ import Caste from "./Components/Caste";
 import FemaleScholarship from "./Components/FemaleScholarship";
 import InstituteDashboard from "./InstituteDashboardComponents/InstituteDashboard";
 import NtseStudentList from "./InstituteDashboardComponents/NtseStudentList";
+import CasteStudentList from "./InstituteDashboardComponents/CasteStudentList";
 import Ntse from "./Components/Ntse";
 import NtseStudentDetails from "./InstituteDashboardComponents/NtseStudentDetails";
+import CasteStudentDetails from "./InstituteDashboardComponents/CasteStudentDetails";
 import GovtDashboard from "./GovtDashboardComponents/GovtDashboard";
 import GovtNtseStudentList from "./GovtDashboardComponents/GovtNtseStudentList";
 import GovtLogin from "./GovtDashboardComponents/GovtLogin";
@@ -35,9 +37,10 @@ function App() {
           <Route path="/govtDashboard" element={<GovtDashboard />} />
           <Route path="/ntseList" element={<NtseStudentList />} />
           <Route path="/ntsestudent/:email" element={<NtseStudentDetails />} />
+          <Route path="/castestudent/:email" element={<CasteStudentDetails />} />
           <Route path="/govtntseList" element={<GovtNtseStudentList />} />
-          {/* <Route path="/femaleList" element={<FemaleList />} />
-          <Route path="/casteList" element={<CasteList />} /> */}
+          {/* <Route path="/femaleList" element={<FemaleList />} />*/}
+          <Route path="/casteList" element={<CasteStudentList />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
