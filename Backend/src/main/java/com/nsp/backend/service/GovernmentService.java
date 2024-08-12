@@ -13,7 +13,6 @@ public class GovernmentService {
 		
 
 		public Government loginGovernment(String email) {
-			
 			return grepo.findByEmail(email);
 		}
 

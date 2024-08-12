@@ -7,4 +7,6 @@ import com.nsp.backend.model.CombinedForm;
 
 @Repository
 public interface CombinedFormRepository extends MongoRepository<CombinedForm, String> {
+	boolean existsById(String id);
+	CombinedForm findByEmail(String email);
 }

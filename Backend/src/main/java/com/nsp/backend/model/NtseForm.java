@@ -49,6 +49,7 @@ public class NtseForm {
 	public void setEncryptedAESKey(byte[] encryptedAESKey) {
 		this.encryptedAESKey = encryptedAESKey;
 	}
+	
     
     
 }

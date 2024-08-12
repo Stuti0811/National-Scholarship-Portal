@@ -1,8 +1,5 @@
 package com.nsp.backend.model;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.validation.constraints.Email;
@@ -30,11 +27,7 @@ public class Institute {
 
 
 	public void setPassword(String password) {
-		Base64.Encoder encoder = Base64.getEncoder();  
-        String normalString = password;
-        String encodedString = encoder.encodeToString(   // encrypt password in database field
-         normalString.getBytes(StandardCharsets.UTF_8) );
-        this.password = encodedString;
+		this.password=password;
 	}
 
 

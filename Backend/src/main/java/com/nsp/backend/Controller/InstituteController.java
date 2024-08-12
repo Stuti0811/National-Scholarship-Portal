@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nsp.backend.Exception.ResourceNotFoundException;
-import com.nsp.backend.model.Government;
 import com.nsp.backend.model.Institute;
 import com.nsp.backend.service.InstituteService;
 
@@ -24,7 +23,7 @@ public class InstituteController {
 		public InstituteService iservice;
 		
 		 @PostMapping("/login")
-			public ResponseEntity<Boolean> loginGovernment(@Validated @RequestBody Government g) throws ResourceNotFoundException
+			public ResponseEntity<Boolean> loginGovernment(@Validated @RequestBody Institute g) throws ResourceNotFoundException
 			{
 				Boolean isAuthenticated = false;
 				String email=g.getEmail();
