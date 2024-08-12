@@ -17,19 +17,19 @@ function GovtNtseStudentList() {
 
 
     return (
-        <div className="student-list-container">
+        <div className="student-list-wrapper">
             <table className="student-table">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
+                    <tr className="table-header">
+                        <th className="header-cell">Name</th>
+                        <th className="header-cell">Email</th>
                     </tr>
                 </thead>
                 <tbody>
                     {students.map(student => (
-                        <tr key={student.email}>
-                            <td>{student.fullName}</td>
-                            <td>{student.email}</td>
+                        <tr key={student.email} className="table-row">
+                            <td className="name-cell">{student.fullName}</td>
+                            <td className="email-cell">{student.email}</td>
                         </tr>
                     ))}
                 </tbody>

@@ -40,7 +40,7 @@ function GovtDashboard() {
                         <table>
                             <tbody>
                                 <tr>
-                                    <td><Link to="/ntseList">Ntse Scholarship List</Link></td>
+                                    <td><Link to="/govtntseList">Ntse Scholarship List</Link></td>
                                 </tr>
                                 <tr>
                                     <td><Link to="/casteList">Caste Scholarship List</Link></td>

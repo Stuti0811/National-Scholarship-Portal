@@ -38,7 +38,7 @@ function NtseStudentList() {
                     <tr className="table-header">
                         <th className="header-cell">Name</th>
                         <th className="header-cell">Email</th>
-                        <th className="header-cell">Actions</th>
+                        <th className="header-cell">Reject</th>
                     </tr>
                 </thead>
                 <tbody>
