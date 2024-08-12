@@ -19,7 +19,7 @@ import com.nsp.backend.service.CasteService;
 
 @RestController
 @RequestMapping("/api/caste")
-@CrossOrigin(origins = "http://localhost:3003")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CasteController {
 
     @Autowired
@@ -29,12 +29,12 @@ public class CasteController {
     public String saveCasteInfo(@RequestParam("email") String email,
                                 @RequestParam("nationality") String nationality,
                                 @RequestParam("specialChild") String specialChild,
-                                @RequestParam("ninthMarks") String ninthMarks,
+                                @RequestParam("ninthMarks") int ninthMarks,
                                 @RequestParam("ninthMarksheet") MultipartFile ninthMarksheet,
-                                @RequestParam("tenthMarks") String tenthMarks,
+                                @RequestParam("tenthMarks") int tenthMarks,
                                 @RequestParam("tenthMarksheet") MultipartFile tenthMarksheet,
                                 @RequestParam("caste") String caste,
-                                @RequestParam("familyIncome") String familyIncome) {
+                                @RequestParam("familyIncome") int familyIncome) {
         try {
             Caste casteInfo = new Caste();
             casteInfo.setEmail(email);

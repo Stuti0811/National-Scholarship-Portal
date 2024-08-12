@@ -9,7 +9,7 @@ public class NtseForm {
     private String email;
     private String nationality;
     private String specialChild;
-    private String marks;
+    private int marks;
     private byte[] encryptedMarksheet;
     private byte[] encryptedAESKey;
     
@@ -31,10 +31,10 @@ public class NtseForm {
 	public void setSpecialChild(String specialChild) {
 		this.specialChild = specialChild;
 	}
-	public String getMarks() {
+	public int getMarks() {
 		return marks;
 	}
-	public void setMarks(String marks) {
+	public void setMarks(int marks) {
 		this.marks = marks;
 	}
 	public byte[] getEncryptedMarksheet() {

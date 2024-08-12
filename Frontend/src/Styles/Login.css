@@ -25,6 +25,7 @@ body {
     position: relative;
     width: 100%;
     height: 41rem;
+    background-color: white;
 }
 
 .login-label {

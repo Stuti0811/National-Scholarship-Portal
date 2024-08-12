@@ -24,7 +24,7 @@ function GovtDashboard() {
                     <div className="nav-container">
                         <nav>
                             <ul>
-                                <li>View Forms</li>
+                                <li><Link to="/govtDashboard">View Forms</Link></li>
                                 <li><Link to="/home">Logout</Link></li>
                             </ul>
                         </nav>
@@ -43,7 +43,7 @@ function GovtDashboard() {
                                     <td><Link to="/govtntseList">Ntse Scholarship List</Link></td>
                                 </tr>
                                 <tr>
-                                    <td><Link to="/casteList">Caste Scholarship List</Link></td>
+                                    <td><Link to="/govtcasteList">Caste Scholarship List</Link></td>
                                 </tr>
                                 <tr>
                                     <td><Link to="/femaleList">Female Scholarship List</Link></td>

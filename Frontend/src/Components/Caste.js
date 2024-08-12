@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../Styles/PersonalInfoForm.css";
+import { useNavigate } from "react-router-dom";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
 
 function Caste() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     nationality: "",
@@ -61,6 +63,8 @@ function Caste() {
         }
       });
       console.log("User data sent successfully");
+      console.log("User data sent successfully");
+      navigate("/dashboard");
     } catch (err) {
       console.error("Error sending user data:", err);
       alert("Failed");

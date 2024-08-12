@@ -24,7 +24,7 @@ function InstituteDashboard() {
                     <div className="nav-container">
                         <nav>
                             <ul>
-                                <li>View Forms</li>
+                                <li><Link to="/instituteDashboard">View Forms</Link></li>
                                 <li><Link to="/home">Logout</Link></li>
                             </ul>
                         </nav>

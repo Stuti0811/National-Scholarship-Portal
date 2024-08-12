@@ -13,7 +13,7 @@ import com.nsp.backend.service.NtseFormService;
 
 @RestController
 @RequestMapping("/api/ntse")
-@CrossOrigin(origins="http://localhost:3003")
+@CrossOrigin(origins="http://localhost:3000")
 public class NtseFormController {
 	@Autowired
 	private NtseFormService nservice;
@@ -22,7 +22,7 @@ public class NtseFormController {
 	public String saveForm(@RequestParam("email") String email,
 			@RequestParam("nationality") String nationality,
 			@RequestParam("specialChild") String specialChild, 
-			@RequestParam("marks") String marks,
+			@RequestParam("marks") int marks,
 			@RequestParam(value = "marksheet", required = true) MultipartFile marksheet
 			){
 		try {

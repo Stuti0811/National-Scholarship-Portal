@@ -43,6 +43,8 @@ function NtseStudentDetails() {
             <p><strong>Domicile:</strong> {student.encryptedDomicile}</p>
             <p><strong>CasteCertificate:</strong> {student.encryptedCasteCertificate}</p>
             <p><strong>CharacterCertificate:</strong> {student.encryptedCharacterCertificate}</p>
+            <p><strong>Marks:</strong> {student.marks}</p>
+            <p><strong>Marksheet:</strong> {student.encryptedMarksheet}</p>
 
             <button className='student-button' onClick={onBack}>Back</button>
         </div>

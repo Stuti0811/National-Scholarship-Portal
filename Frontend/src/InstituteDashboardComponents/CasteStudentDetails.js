@@ -43,6 +43,10 @@ function CasteStudentDetails() {
             <p><strong>Domicile:</strong> {student.encryptedDomicile}</p>
             <p><strong>CasteCertificate:</strong> {student.encryptedCasteCertificate}</p>
             <p><strong>CharacterCertificate:</strong> {student.encryptedCharacterCertificate}</p>
+            <p><strong>Ninth Marks:</strong> {student.ninthMarks}</p>
+            <p><strong>Tenth Marks:</strong> {student.ninthMarks}</p>
+            <p><strong>Caste:</strong> {student.caste}</p>
+            <p><strong>Family Income:</strong> {student.familyIncome}</p>
 
             <button className='student-button' onClick={onBack}>Back</button>
         </div>

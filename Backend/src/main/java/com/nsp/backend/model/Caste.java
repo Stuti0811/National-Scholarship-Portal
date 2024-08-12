@@ -9,12 +9,12 @@ public class Caste {
     private String email;
     private String nationality;
     private String specialChild;
-    private String ninthMarks;
+    private int ninthMarks;
     private byte[] encryptedNinthMarksheet;
-    private String tenthMarks;
+    private int tenthMarks;
     private byte[] encryptedTenthMarksheet;
     private String caste;
-    private String familyIncome;
+    private int familyIncome;
     private byte[] encryptedAESKey;
 	public String getEmail() {
 		return email;
@@ -34,10 +34,10 @@ public class Caste {
 	public void setSpecialChild(String specialChild) {
 		this.specialChild = specialChild;
 	}
-	public String getNinthMarks() {
+	public int getNinthMarks() {
 		return ninthMarks;
 	}
-	public void setNinthMarks(String ninthMarks) {
+	public void setNinthMarks(int ninthMarks) {
 		this.ninthMarks = ninthMarks;
 	}
 	public byte[] getEncryptedNinthMarksheet() {
@@ -46,10 +46,10 @@ public class Caste {
 	public void setEncryptedNinthMarksheet(byte[] encryptedNinthMarksheet) {
 		this.encryptedNinthMarksheet = encryptedNinthMarksheet;
 	}
-	public String getTenthMarks() {
+	public int getTenthMarks() {
 		return tenthMarks;
 	}
-	public void setTenthMarks(String tenthMarks) {
+	public void setTenthMarks(int tenthMarks) {
 		this.tenthMarks = tenthMarks;
 	}
 	public byte[] getEncryptedTenthMarksheet() {
@@ -64,10 +64,10 @@ public class Caste {
 	public void setCaste(String caste) {
 		this.caste = caste;
 	}
-	public String getFamilyIncome() {
+	public int getFamilyIncome() {
 		return familyIncome;
 	}
-	public void setFamilyIncome(String familyIncome) {
+	public void setFamilyIncome(int familyIncome) {
 		this.familyIncome = familyIncome;
 	}
 	public byte[] getEncryptedAESKey() {

@@ -15,6 +15,7 @@ import NtseStudentDetails from "./InstituteDashboardComponents/NtseStudentDetail
 import CasteStudentDetails from "./InstituteDashboardComponents/CasteStudentDetails";
 import GovtDashboard from "./GovtDashboardComponents/GovtDashboard";
 import GovtNtseStudentList from "./GovtDashboardComponents/GovtNtseStudentList";
+import GovtCasteStudentList from "./GovtDashboardComponents/GovtCasteStudentList";
 import GovtLogin from "./GovtDashboardComponents/GovtLogin";
 import InstituteLogin from "./InstituteDashboardComponents/InstituteLogin";
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/ntsestudent/:email" element={<NtseStudentDetails />} />
           <Route path="/castestudent/:email" element={<CasteStudentDetails />} />
           <Route path="/govtntseList" element={<GovtNtseStudentList />} />
+          <Route path="/govtcasteList" element={<GovtCasteStudentList />} />
           {/* <Route path="/femaleList" element={<FemaleList />} />*/}
           <Route path="/casteList" element={<CasteStudentList />} />
           <Route path="*" element={<Error />} />

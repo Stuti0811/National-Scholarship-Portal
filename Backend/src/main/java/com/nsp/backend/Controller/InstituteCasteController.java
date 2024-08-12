@@ -1,4 +1,5 @@
 package com.nsp.backend.Controller;
+
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -12,37 +13,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nsp.backend.Repository.CasteRepository;
 import com.nsp.backend.Repository.CombinedFormRepository;
-import com.nsp.backend.Repository.NtseFormRepository;
+import com.nsp.backend.model.Caste;
 import com.nsp.backend.model.CombinedForm;
-import com.nsp.backend.model.InstituteNtseStudent;
-import com.nsp.backend.model.NtseForm;
+import com.nsp.backend.model.InstituteCasteStudent;
 
 @RestController
-@RequestMapping("/api/studentslist")
+@RequestMapping("/api/castestudentslist")
 @CrossOrigin(origins="http://localhost:3000")
-public class InstituteNtseController {
-
-    @Autowired
+public class InstituteCasteController {
+	@Autowired
     private CombinedFormRepository combinedFormRepository;
-    @Autowired
-    private NtseFormRepository ntseFormRepository;
-
-    // Get all students whose email is present in both tables and marks > 90
+	@Autowired
+	private CasteRepository crepo;
+	
+	 // Get all students whose email is present in both tables and marks > 90
     @GetMapping("/getall")
-    public List<InstituteNtseStudent> getAllStudents() {
+    public List<InstituteCasteStudent> getAllStudents() {
         List<CombinedForm> combinedForms = combinedFormRepository.findAll();
-        List<NtseForm> ntseForms = ntseFormRepository.findAll();
+        List<Caste> caste = crepo.findAll();
 
         // Create a map of emails to marks from the NtseForm repository
-        Map<String, Integer> ntseEmailToMarks = ntseForms.stream()
-                .filter(ntseForm -> ntseForm.getMarks() > 90) // Filter by marks > 90
-                .collect(Collectors.toMap(NtseForm::getEmail, NtseForm::getMarks));
+        Map<String, Integer> casteEmailToMarks = caste.stream()
+                .filter(c -> c.getTenthMarks() > 90 && c.getFamilyIncome()<800000) // Filter by marks > 90
+                .collect(Collectors.toMap(Caste::getEmail,Caste::getTenthMarks));
 
         // Filter combinedForms to include only those emails present in both repositories and marks > 90
-        List<InstituteNtseStudent> result = combinedForms.stream()
-                .filter(cf -> ntseEmailToMarks.containsKey(cf.getEmail()))
-                .map(cf -> new InstituteNtseStudent(
+        List<InstituteCasteStudent> result = combinedForms.stream()
+                .filter(cf -> casteEmailToMarks.containsKey(cf.getEmail()))
+                .map(cf -> new InstituteCasteStudent(
                         cf.getFirstName() + " " + cf.getMiddleName() + " " + cf.getLastName(),
                         cf.getEmail()
                 ))
@@ -53,12 +53,13 @@ public class InstituteNtseController {
 
         return result;
     }
+    
 
     // Delete a student
     @DeleteMapping("delete/{email}")
     public ResponseEntity<Void> deleteStudent(@PathVariable String email) {
-        if (ntseFormRepository.existsById(email)) {
-        	ntseFormRepository.deleteById(email);
+        if (crepo.existsById(email)) {
+        	crepo.deleteById(email);
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();

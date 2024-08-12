@@ -6,4 +6,6 @@ import com.nsp.backend.model.Caste;
 
 public interface CasteRepository extends MongoRepository<Caste, String> {
 
+	Caste findByEmail(String email);
+
 }
