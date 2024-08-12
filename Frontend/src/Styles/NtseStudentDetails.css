@@ -1,0 +1,47 @@
+/* Container for the student details */
+.student-detail-container {
+    max-width: 800px;
+    margin: 1rem 1rem;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Heading for the details section */
+.student-detail-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Style for each detail item */
+.student-detail-container p {
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #555;
+    margin: 0.5rem 4rem
+}
+
+/* Bold labels for the detail fields */
+.student-detail-container p strong {
+    color: #222;
+}
+
+/* Add some spacing between different sections */
+.student-detail-container p + p {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .student-detail-container {
+        padding: 15px;
+    }
+    
+    .student-detail-container p {
+        font-size: 14px;
+    }
+}

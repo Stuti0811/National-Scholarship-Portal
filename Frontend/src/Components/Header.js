@@ -20,12 +20,12 @@ const Header = () => {
       <div className="title">National Scholarship Portal</div>
       <nav className="nav">
         <li>
-          <Link to="/home" smooth={true} duration={500}>
+          <Link to="home" smooth={true} duration={500} >
             Home
           </Link>
         </li>
         <li>
-          <Link to="/about" smooth={true} duration={500}>
+          <Link to="about" smooth={true} duration={500}>
             About Us
           </Link>
         </li>
@@ -41,8 +41,8 @@ const Header = () => {
           {dropdownOpen && (
             <div className="dropdown-content">
               <a href="/login">Student Login</a>
-              <a href="/loginInstituteGovt">Institute Login</a>
-              <a href="/loginInstituteGovt">Government Login</a>
+              <a href="/instituteLogin">Institute Login</a>
+              <a href="/govtLogin">Government Login</a>
             </div>
           )}
         </div>

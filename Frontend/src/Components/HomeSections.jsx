@@ -8,19 +8,17 @@ import Footer from "./Footer";
 const HomeSections = () => {
   return (
     <div>
-      <nav>
-        <Header />
-      </nav>
-      <br></br>
-      <Element name="/home">
+      <Header />
+      <br />
+      <Element name="home">
         <Home />
       </Element>
 
-      <Element name="/about">
+      <Element name="about">
         <AboutUs />
       </Element>
 
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

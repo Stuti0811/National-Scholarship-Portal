@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import '../Styles/LoginInstituteGovt.css';
 
-function LoginInstituteGovt() {
+function GovtLogin() {
     const navigate = useNavigate();
 
     const [loginIGData, setLoginIGData] = useState({
@@ -22,11 +22,11 @@ function LoginInstituteGovt() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8080/nsp/api/institute/login", loginIGData);
+            const response = await axios.post("http://localhost:8080/nsp/api/government/login", loginIGData);
             if (response.data) {
-                navigate("/instituteDashboard");
+                navigate("/govtDashboard");
             } else {
-                alert("Login Failed!");
+                alert("Login Details Not Found!");
             }
         } catch (err) {
             console.error('Error sending login data:', err);
@@ -37,13 +37,13 @@ function LoginInstituteGovt() {
     return (
         <div className="loginig">
             <form onSubmit={handleLogin}>
-                <label htmlFor="chk" aria-hidden="true">Login</label>
-                <input type="email" name="email" placeholder="Email" value={loginIGData.email} onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Password" value={loginIGData.password} onChange={handleChange} required />
-                <button type="submit">Login</button>
+                <label className="ins-lable" htmlFor="chk" aria-hidden="true">Login</label>
+                <input className="ins-input" type="email" name="email" placeholder="Email" value={loginIGData.email} onChange={handleChange} required />
+                <input className="ins-input" type="password" name="password" placeholder="Password" value={loginIGData.password} onChange={handleChange} required />
+                <button className="ins-btn" type="submit">Login</button>
             </form>
         </div>
     );
 }
 
-export default LoginInstituteGovt;
+export default GovtLogin;

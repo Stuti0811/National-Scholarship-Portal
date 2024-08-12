@@ -1,4 +1,4 @@
-label {
+.ins-lable {
     margin-top: 3rem;
     color: var(--primary);
     font-size: 2.5rem;
@@ -10,7 +10,7 @@ label {
     transition: .5s ease-in-out;
 }
 
-input {
+.ins-input {
     width: 90%;
     height: 2rem;
     background: #e0dede;
@@ -22,7 +22,7 @@ input {
     font-size: 1rem;
 }
 
-button {
+.ins-btn {
     margin-top: 3rem;
     width: 50%;
     height: 3rem;
@@ -38,7 +38,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.ins-btn:hover {
     background: #005f7a;
 }
 

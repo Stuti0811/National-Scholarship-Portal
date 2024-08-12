@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../Styles/PersonalInfoForm.css";
+import { useNavigate } from "react-router-dom";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 function Ntse() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",  // Adding email field to link with PersonalInfoForm
     nationality: "",
@@ -47,6 +49,7 @@ function Ntse() {
         }
       });
       console.log("User data sent successfully");
+      navigate("/dashboard");
     } catch (err) {
       console.error("Error sending user data:", err);
       alert("Failed");
@@ -77,7 +80,7 @@ function Ntse() {
             onChange={handleChange}
           />
 
-          <label>8th Score: (in percentage)</label>
+          <label>9th Score: (in percentage)</label>
           <input
             type="number"
             id="marks"
@@ -86,7 +89,7 @@ function Ntse() {
             onChange={handleChange}
           />
 
-          <label>8th Std Marksheet:</label>
+          <label>9th Std Marksheet:</label>
           <input
             type="file"
             id="marksheet"

@@ -17,18 +17,16 @@ function Dashboard() {
         <div className="sidebar">
           <div className="profile">
             <img src={logo1} alt="Profile" />
-            <h3>Gurpreet Singh</h3>
-            <p>24.11.1999</p>
+            <h3>Hello User!</h3>
           </div>
           <div className="nav-container">
             <nav>
               <ul>
-                <li><Link to="/forms">My Profile</Link></li>
-                <li>Add and Update Details</li>
-                {/* <li>Scholarship Forms</li> */}
-                <li>Application Status</li>
-                <li>Contact Us</li>
-                <li><Link to="/home">Logout</Link></li>
+                <li className='li'><Link to="/forms">My Profile</Link></li>
+                <li className='li'>Add and Update Details</li>
+                <li className='li'>Application Status</li>
+                <li className='li'>Contact Us</li>
+                <li className='li'><Link to="/home">Logout</Link></li>
               </ul>
             </nav>
           </div>
@@ -36,11 +34,11 @@ function Dashboard() {
         <div className="dashboard">
           <div className="profile-section">
             {/* <img src={logo} alt="Profile" className="profile-pic" /> */}
-            <h2>Welcome Gurpreet Singh</h2>
+            <h2>Welcome!</h2>
           </div>
           <div className="scholarship-forms">
-            <h2>Scholarship Forms</h2>
-            <h6><Link to="/forms">Note: Please Set up your profile before applying for amy scholarship</Link></h6>
+            <h2 className='forms-heading'>Scholarship Forms</h2>
+            <h6><Link to="/forms">Note: Please Set up your profile before applying for any scholarship</Link></h6>
             <table>
               <thead>
                 <tr>

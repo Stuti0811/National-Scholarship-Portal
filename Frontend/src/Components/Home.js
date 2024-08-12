@@ -6,7 +6,7 @@ import NoticeForms from "./NoticeForms";
 
 const App = () => {
   return (
-    <div className="app">
+    <div className="app" style={{ height: "100vh" }}>
       <Banner />
       <div className="content">
         <div className="left-column">

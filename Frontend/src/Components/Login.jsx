@@ -42,7 +42,7 @@ function Login() {
             if (response.data) {
                 navigate("/dashboard");
             } else {
-                alert("Login Failed!");
+                alert("Email or password is Invalid!");
             }
         } catch (err) {
             console.error('Error sending login data:', err);
@@ -53,7 +53,7 @@ function Login() {
     const handleSignup = async (e) => {
         e.preventDefault();
         if (signupData.password !== signupData.cpassword) {
-            alert("Passwords should be the same!");
+            alert("Passwords should be same!");
             return;
         }
         try {
@@ -71,22 +71,22 @@ function Login() {
 
             <div className="signup">
                 <form onSubmit={handleSignup}>
-                    <label htmlFor="chk" aria-hidden="true">Sign up</label>
-                    <input type="text" name="fname" placeholder="First Name" value={signupData.fname} onChange={handleSignupChange} required />
-                    <input type="text" name="lname" placeholder="Last Name" value={signupData.lname} onChange={handleSignupChange} required />
-                    <input type="email" name="email" placeholder="Email" value={signupData.email} onChange={handleSignupChange} required />
-                    <input type="password" name="password" placeholder="Password" value={signupData.password} onChange={handleSignupChange} required />
-                    <input type="password" name="cpassword" placeholder="Confirm Password" value={signupData.cpassword} onChange={handleSignupChange} required />
-                    <button type="submit">Sign up</button>
+                    <label className="signup-label" htmlFor="chk" aria-hidden="true">Sign up</label>
+                    <input className="login-input" type="text" name="fname" placeholder="First Name" value={signupData.fname} onChange={handleSignupChange} required />
+                    <input className="login-input" type="text" name="lname" placeholder="Last Name" value={signupData.lname} onChange={handleSignupChange} required />
+                    <input className="login-input" type="email" name="email" placeholder="Email" value={signupData.email} onChange={handleSignupChange} required />
+                    <input className="login-input" type="password" name="password" placeholder="Password" value={signupData.password} onChange={handleSignupChange} required />
+                    <input className="login-input" type="password" name="cpassword" placeholder="Confirm Password" value={signupData.cpassword} onChange={handleSignupChange} required />
+                    <button className="login-button" type="submit">Sign up</button>
                 </form>
             </div>
 
             <div className="login">
                 <form onSubmit={handleLogin}>
-                    <label htmlFor="chk" aria-hidden="true">Login</label>
-                    <input type="email" name="email" placeholder="Email" value={loginData.email} onChange={handleLoginChange} required />
-                    <input type="password" name="password" placeholder="Password" value={loginData.password} onChange={handleLoginChange} required />
-                    <button type="submit">Login</button>
+                    <label className="login-label" htmlFor="chk" aria-hidden="true">Login</label>
+                    <input className="login-input" type="email" name="email" placeholder="Email" value={loginData.email} onChange={handleLoginChange} required />
+                    <input className="login-input" type="password" name="password" placeholder="Password" value={loginData.password} onChange={handleLoginChange} required />
+                    <button className="login-button" type="submit">Login</button>
                 </form>
             </div>
         </div>

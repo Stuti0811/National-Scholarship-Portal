@@ -55,6 +55,7 @@ html, body {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     color: #ffffff;
     overflow-y: auto;
+    height: 100%;
 }
 
 .profile {
@@ -66,7 +67,7 @@ html, body {
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -93,7 +94,7 @@ nav ul {
     margin: 0;
 }
 
-nav li {
+.li {
     margin: 15px 0;
     color: #ffffff;
     font-size: 16px;
@@ -121,7 +122,7 @@ nav li:hover {
 
 .profile-section, .scholarship-forms {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 1rem;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 12px;
@@ -156,6 +157,10 @@ nav li:hover {
     transform: translateY(-2px);
 }
 
+.forms-heading{
+    margin-bottom: 2rem;
+}
+
 .scholarship-forms {
     text-align: center;
     padding: 20px;
@@ -176,6 +181,7 @@ nav li:hover {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .scholarship-forms th {

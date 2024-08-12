@@ -11,12 +11,11 @@ function Footer() {
         <div className="footer-columns">
           <div className="footer-column contact-details">
             <h3>Contact Us</h3>
-            <p>1234 Main Street</p>
-            <p>Anytown, USA 12345</p>
+            <p>Electronic City</p>
+            <p>Phase-1</p>
+            <p>CDAC, Bengaluru - 560100</p>
             <p>Email: info@nsportal.com</p>
-            <p>Phone: (123) 456-7890</p>
-            <p>xyz</p>
-            <p>xyz</p>
+            <p>Phone: +91 8975876851</p>
           </div>
           <div className="footer-column footer-media">
             <div className="footer-images">
