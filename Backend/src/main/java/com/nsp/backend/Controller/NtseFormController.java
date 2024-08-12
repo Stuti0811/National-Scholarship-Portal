@@ -13,7 +13,7 @@ import com.nsp.backend.service.NtseFormService;
 
 @RestController
 @RequestMapping("/api/ntse")
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins="http://localhost:3003")
 public class NtseFormController {
 	@Autowired
 	private NtseFormService nservice;

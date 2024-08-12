@@ -5,13 +5,12 @@ import logo from '../assets/logo.png';
 import logo1 from '../assets/logo1.png';
 import '../Styles/NtseStudentList.css';
 
-function GovtNtseStudentList() {
+function GovtCasteStudentList() {
     const [students, setStudents] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
 
-
     useEffect(() => {
-        axios.get('http://localhost:8080/nsp/api/studentslist/getall')
+        axios.get('http://localhost:8080/nsp/api/castestudentslist/getall')
             .then(response => {
                 setStudents(response.data);
             })
@@ -42,9 +41,6 @@ function GovtNtseStudentList() {
             console.error('There was an error sending the email!', error);
         });
     };
-    
-    
-    
 
 
     return (
@@ -101,4 +97,4 @@ function GovtNtseStudentList() {
     );
 }
 
-export default GovtNtseStudentList;
+export default GovtCasteStudentList;
